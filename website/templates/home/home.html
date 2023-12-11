@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>We.List</h1>
+            </div>
+
+            <nav class="menu_desktop">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="ativo">home</a></li>
+                    <li><a href="{% url 'create' %}">criar</a></li>
+                    <li><a href="{% url 'logout_view' %}">logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h1>ola {{user.username}}</h1>
+        
+            <h2>Funcionarios</h2>
+            {% for i in funcionario %}
+                {{i.nome}}
+                {{i.sobrenome}}
+                {{i.cpf}}
+                {{i.tempo_de_servico}}
+                {{i.remuneracao}}
+                {{i.cdp}}
+                <a href="/update/{{i.id}}"><button>edit</button></a>
+                <a href="/delete/{{i.id}}"><button>delete</button></a>
+                <hr>
+            {% endfor %}
+
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,129 @@
+:root{
+    --bl: #000;
+    --wt: #fff;
+    --cc: #ccc;
+    --mm: #666;
+    --bb: rgb(0, 81, 255);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+.container{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+header{
+    padding: 10px 0;
+    background-color: var(--bl);
+    color: #fff;
+}
+
+header > .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .menu_desktop ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;t
+}
+
+header .menu_desktop ul li{
+    margin: 0 10px;
+}
+
+header .menu_desktop ul li a{
+    text-decoration: none;
+    color: var(--wt);
+}
+
+header .menu_desktop ul li a:hover,
+header .menu_desktop ul li .ativo{
+    color: var(--cc);
+}
+
+section form{
+    width: 100%;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section form h1{
+    margin: 20px 0;
+    font-size: 30px;
+    font-weight: lighter;
+    font-variant: small-caps;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+section form .w100,
+section form .w100s{
+    width: 30%;
+    margin: 10px auto;
+}
+
+section form .w100s{
+    text-align: center;
+}
+
+section form p{
+    margin: 5px 0;
+    font-size: 10px;
+}
+
+section form input{
+    width: 90%;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid var(--mm);
+    color: var(--mm);
+    transition: 1s;
+}
+
+section form .w100s input{
+    width: 50%;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    color: var(--wt);
+    background-color: var(--bb);
+    transition: 1s;
+    margin: 20px 0;
+}
+
+
+
+section form input:focus{
+    width: 100%;
+    transition: 1s;
+}
+
+section form a{
+    color: var(--bb);
+    text-decoration: none;
+}

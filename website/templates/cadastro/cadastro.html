@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>We.List</h1>
+            </div>
+
+            <nav class="menu_desktop">
+                <ul>
+                    <li><a href="{% url 'login' %}">login</a></li>
+                    <li><a href="{% url 'cadastro' %}">cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <form action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}
+                <h1>CADASTRO</h1>
+                <div class="w100">
+                    <p>Usuario</p>
+                    <input type="text" name="usuario" required>
+                </div>
+                <div class="w100">
+                    <p>Email</p>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="w100">
+                    <p>Senha</p>
+                    <input type="password" name="senha" required>
+                </div>
+                <div class="w100s">
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>We.List</h1>
+            </div>
+
+            <nav class="menu_desktop">
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'create' %}" class="ativo">criar</a></li>
+                    <li><a href="{% url 'logout_view' %}">logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="user">
+                <div class="name">
+                    <h1>Ola, {{user.username}}!</h1>
+                    <p>{{user.email}}</p>
+                </div>
+                <div class="options">
+                    <a href=""><button>Perfil</button></a>
+                    <a href=""><button>Ajuda</button></a>
+                </div>
+            </div>
+
+            <form action="{% url 'update' funcionario.id %}" method="POST">
+                {% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                    <h1>Edite os dados de: {{funcionario.nome}}</h1>
+                <input type="hidden" name="cdp" value="{{user.username}}">
+                <div class="w100">
+                    <p>Nome</p>
+                    <input type="text" name="nome" value="{{funcionario.nome}}">
+                </div>
+                <div class="w100">
+                    <p>Sobrenome</p>
+                    <input type="text" name="sobrenome" value="{{funcionario.sobrenome}}">
+                </div>
+                <div class="w100">
+                    <p>CPF</p>
+                    <input type="text" name="cpf" value="{{funcionario.cpf}}">
+                </div>
+                <div class="w100">
+                    <p>Tempo de Servico</p>
+                    <input type="text" name="tempo" value="{{funcionario.tempo_de_servico}}">
+                </div>
+                <div class="w100">
+                    <p>Remuneracao</p>
+                    <input type="text" name="remuneracao" value="{{funcionario.remuneracao}}">
+                </div>
+                
+                <div class="w100s">
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
